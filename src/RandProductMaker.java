@@ -2,13 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-import java.nio.charset.StandardCharsets;
 import java.util.regex.Pattern;
 
 public class RandProductMaker extends JFrame {
@@ -19,11 +16,8 @@ public class RandProductMaker extends JFrame {
         JTextField nameTF, descTF, IDTF, costTF, counterTF;
         JButton quitBtn, submitBtn;
 
-
         String cost;
         int productCounter = 0;
-
-
 
     public RandProductMaker() {
         setTitle("Product List Maker");
@@ -47,13 +41,9 @@ public class RandProductMaker extends JFrame {
         entryPnl2 = new JPanel();
         entryPnl2.setLayout(new GridLayout(5,1));
 
-
-
-
         createTitlePanel();
         createProductPanel();
         createButtonPanel();
-
 
         setVisible(true);
     }
@@ -64,6 +54,7 @@ public class RandProductMaker extends JFrame {
 
         titleLbl = new JLabel("Enter Product Information:", JLabel.CENTER);
         titleLbl.setFont(new Font("Comic Sans MS", Font.PLAIN, 48));
+
         //aligns text and image to be stacked not side by side
         titleLbl.setVerticalTextPosition(JLabel.BOTTOM);
         titleLbl.setHorizontalTextPosition(JLabel.CENTER);
@@ -119,7 +110,7 @@ public class RandProductMaker extends JFrame {
         entryPnl.add(costLbl, new GridLayout(5,1));
         entryPnl2.add(costTF, new GridLayout(5,1));
 
-
+        //get rid of extra
         productPnl.add(entryPnl, BorderLayout.WEST);
         productPnl.add(entryPnl2, BorderLayout.EAST);
         mainPnl.add(productPnl, BorderLayout.CENTER);
@@ -154,7 +145,7 @@ public class RandProductMaker extends JFrame {
             JOptionPane pane =new JOptionPane();
             @Override
             public void actionPerformed(ActionEvent e) {
-                //get rid of extra
+                //get rid of extra---------------------------------------idk if i should keep this find out when running tests with the search stuff idk------
                 if(nameTF.getText().length() > 35)
                     nameTF.setText(nameTF.getText().substring(0, 35));
                 if(IDTF.getText().length() > 6)
@@ -167,20 +158,18 @@ public class RandProductMaker extends JFrame {
 
                 //collect, check, clear, and save
                 cost = costTF.getText();
-                if (Pattern.matches("[ 0.1-9.9 ]+", cost)) {
-
-                    System.out.println(nameTF.getText());
-                    System.out.println(descTF.getText());
-                    System.out.println(IDTF.getText());
-                    System.out.println(costTF.getText());
+                if (Pattern.matches("[ 0.1-9.9 ]+", cost) && IDTF.getText().length() == 6 && descTF.getText().length() <= 75 && nameTF.getText().length() <= 35) { //check if valid
+                                    System.out.println(nameTF.getText()); //test
+                                    System.out.println(descTF.getText()); //test
+                                    System.out.println(IDTF.getText());   //test
+                                    System.out.println(costTF.getText()); //test
 
 
                     try {
-
                         randFile = new RandomAccessFile(new File("src/RandProducts.txt"), "rw");
-                        randFile.write(String.format("%35s%6s%6s%75s\n",nameTF.getText(), descTF.getText(), IDTF.getText(), costTF.getText() ).getBytes());
+                        randFile.seek(randFile.length());
+                        randFile.write(String.format("%6s%35s%8s%75s\n",IDTF.getText(), nameTF.getText(), costTF.getText(), descTF.getText() ).getBytes());
                         randFile.close();
-
                     } catch (FileNotFoundException i) {
                         i.printStackTrace();
                     } catch (IOException ex) {
@@ -195,30 +184,18 @@ public class RandProductMaker extends JFrame {
                     counterTF.setText(String.valueOf(productCounter));
 
                 } else {
-                    String numNeeded = "Please enter a number for cost! Try Again!";
-                    JOptionPane.showMessageDialog(null, numNeeded);
+                    String wrongInput = "Requirements:\n" +
+                            "- Must entered a number for cost!\n" +
+                            "- ID must include 6 characters!\n" +
+                            "- Name can not be more than 35 characters\n"+
+                            "- Description must be less than 75 characters";
+                    JOptionPane.showMessageDialog(null, wrongInput);
                 }
             }
         });
     }
-
-
 }
-// capture the ta to string var
-    /* use in a button to finally collect all the info
 
-    if costlbl != number
-
-    if (Pattern.matches("[a-zA-Z]+", costTF) == false && text.length() > 2) {
-    cost = costTF; }
-
-    pop up message and clear field
-
-
-    name = nameTF.getText();
-    System.out.println(name);
-
-     */
 
 
 
