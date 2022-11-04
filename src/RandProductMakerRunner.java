@@ -1,7 +1,4 @@
-import javax.swing.*;
-import java.awt.*;
-
-public class RandProductRunner {
+public class RandProductMakerRunner {
     public static void main(String[] args) {
         RandProductMaker frame = new RandProductMaker();
     }
