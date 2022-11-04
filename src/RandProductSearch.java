@@ -125,5 +125,15 @@ public class RandProductSearch extends JFrame {
                 displayTA.setText("");
             }
         });
+
+        //search
+        searchBtn.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+
+            }
+        });
     }
 }
