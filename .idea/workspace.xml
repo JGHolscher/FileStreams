@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e5485335-352a-4763-822f-1807866c8db3" name="Changes" comment="mostly work we chilling rn &#10;next up searching">
-      <change afterPath="$PROJECT_DIR$/src/RandProductSearch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RandProductSearchRunner.java" afterDir="false" />
+    <list default="true" id="e5485335-352a-4763-822f-1807866c8db3" name="Changes" comment="basics of second project done just make search work">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RandProductRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandProductMakerRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RandProductSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandProductSearch.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +87,21 @@
       <option name="project" value="LOCAL" />
       <updated>1667500812163</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="basics of second project done just make search work">
+      <created>1667589308898</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1667589308898</updated>
+    </task>
+    <task id="LOCAL-00005" summary="basics of second project done just make search work">
+      <created>1667589411435</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1667589411435</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -107,6 +119,7 @@
     <MESSAGE value=".." />
     <MESSAGE value="ugh" />
     <MESSAGE value="mostly work we chilling rn &#10;next up searching" />
-    <option name="LAST_COMMIT_MESSAGE" value="mostly work we chilling rn &#10;next up searching" />
+    <MESSAGE value="basics of second project done just make search work" />
+    <option name="LAST_COMMIT_MESSAGE" value="basics of second project done just make search work" />
   </component>
 </project>

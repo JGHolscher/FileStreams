@@ -2,8 +2,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.RandomAccessFile;
 
 public class RandProductSearch extends JFrame {
+    RandomAccessFile randFile;
     JPanel mainPnl,titlePnl, sdPnl, searchPnl, displayPnl, btnPnl;
     JLabel titleLbl, searchLbl;
     JTextField searchTF;
@@ -132,7 +136,11 @@ public class RandProductSearch extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-
+                try {
+                    randFile = new RandomAccessFile(new File("src/RandProducts.txt"), "r");
+                } catch (FileNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }
