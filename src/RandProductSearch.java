@@ -2,18 +2,27 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.RandomAccessFile;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static java.nio.file.StandardOpenOption.CREATE;
 
 public class RandProductSearch extends JFrame {
-    RandomAccessFile randFile;
-    JPanel mainPnl,titlePnl, sdPnl, searchPnl, displayPnl, btnPnl;
+    JPanel mainPnl, titlePnl, sdPnl, searchPnl, displayPnl, btnPnl;
     JLabel titleLbl, searchLbl;
     JTextField searchTF;
     JTextArea displayTA;
     JScrollPane scroller;
     JButton quitBtn, clearBtn, searchBtn;
+    RandomAccessFile randFile;
+    ArrayList<String> results = new ArrayList<>();
 
 
     RandProductSearch() { //done
@@ -60,12 +69,12 @@ public class RandProductSearch extends JFrame {
         mainPnl.add(titlePnl, BorderLayout.NORTH);
     }
 
-    private void createSearchPanel(){ //done
+    private void createSearchPanel() { //done
         searchPnl = new JPanel();
 
         searchLbl = new JLabel("Enter Product you would like to Search:", JLabel.CENTER);
         searchLbl.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
-        searchTF =  new JTextField("", 20);
+        searchTF = new JTextField("", 20);
 
         searchPnl.add(searchLbl);
         searchPnl.add(searchTF);
@@ -73,10 +82,10 @@ public class RandProductSearch extends JFrame {
 
     }
 
-    private void createDisplayPanel(){ //done
+    private void createDisplayPanel() { //done
         displayPnl = new JPanel();
 
-        displayTA =  new JTextArea(30, 75);
+        displayTA = new JTextArea(30, 75);
         scroller = new JScrollPane(displayTA);
         displayTA.setFont(new Font("Monospaced", Font.PLAIN, 16));
 
@@ -120,28 +129,51 @@ public class RandProductSearch extends JFrame {
         });
 
         //clear - DONE
-        clearBtn.addActionListener(new ActionListener()
-        {
+        clearBtn.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
+            public void actionPerformed(ActionEvent e) {
                 searchTF.setText("");
                 displayTA.setText("");
             }
         });
 
         //search
-        searchBtn.addActionListener(new ActionListener()
-        {
+        searchBtn.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
+            public void actionPerformed(ActionEvent e) {
+
+                File prodFile = new File("RandProducts.txt");
                 try {
-                    randFile = new RandomAccessFile(new File("src/RandProducts.txt"), "r");
+                    randFile = new RandomAccessFile(prodFile, "rw");
+
+                    while (randFile.getFilePointer() < randFile.length()) {
+                        results.add(randFile.readLine() + "\n");
+                    }
                 } catch (FileNotFoundException ex) {
-                    throw new RuntimeException(ex);
+                    ex.printStackTrace();
+                } catch (IOException i) {
+                    i.printStackTrace();
                 }
+
+                filterFile();
             }
         });
     }
+
+
+
+    private void filterFile() {
+        String searchWord = searchTF.getText();
+        searchTF.setText(searchWord);
+
+        Stream<String> stream = results.stream().filter(str -> str.toLowerCase().contains(searchWord));
+
+        stream.forEach(str -> displayTA.append(str));
+
+       // for (Stream lines : stream) {
+       //     displayTA.append(lines + "\n\n");
+      //  }
+    }
 }
+
+     */
