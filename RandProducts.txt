@@ -1,0 +1,5 @@
+000001                           Pipewood   600.0                                                           Long Bottom Leaf
+000002                             Lembas   200.0                                                        Elven Wayfare Bread
+000003                               Wine   400.0                                                          Woodland Elf Wine
+000004                          Mushrooms   125.0                                                       Farmer Took's Finest
+000005                            Mithril  3000.0                                                    Enchanted Dwarven Armor

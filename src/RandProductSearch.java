@@ -79,9 +79,9 @@ public class RandProductSearch extends JFrame {
     private void createDisplayPanel() { //done
         displayPnl = new JPanel();
 
-        displayTA = new JTextArea(30, 75);
+        displayTA = new JTextArea(30, 150);
         scroller = new JScrollPane(displayTA);
-        displayTA.setFont(new Font("Monospaced", Font.PLAIN, 16));
+        displayTA.setFont(new Font("Monospaced", Font.PLAIN, 12));
 
         displayPnl.add(scroller);
         displayTA.setEditable(false);
