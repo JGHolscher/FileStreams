@@ -3,14 +3,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static java.nio.file.StandardOpenOption.CREATE;
 
@@ -92,7 +86,7 @@ public class RandProductSearch extends JFrame {
         displayPnl.add(scroller);
         displayTA.setEditable(false);
 
-        displayPnl.add(displayTA);
+        //displayPnl.add(displayTA);
         sdPnl.add(displayPnl, new BorderLayout().CENTER);
     }
 
@@ -138,15 +132,18 @@ public class RandProductSearch extends JFrame {
         });
 
         //search
-        searchBtn.addActionListener(new ActionListener() {
+searchBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                File prodFile = new File("RandProducts.txt");
+               // File prodFile = new File("RandProducts.txt");
                 try {
-                    randFile = new RandomAccessFile(prodFile, "rw");
+                    randFile = new RandomAccessFile("RandProducts.txt", "rw");
+
 
                     while (randFile.getFilePointer() < randFile.length()) {
+
+                       // randFile.seek(0);
                         results.add(randFile.readLine() + "\n");
                     }
                 } catch (FileNotFoundException ex) {
@@ -154,7 +151,6 @@ public class RandProductSearch extends JFrame {
                 } catch (IOException i) {
                     i.printStackTrace();
                 }
-
                 filterFile();
             }
         });
@@ -163,17 +159,23 @@ public class RandProductSearch extends JFrame {
 
 
     private void filterFile() {
-        String searchWord = searchTF.getText();
-        searchTF.setText(searchWord);
+        String searchWord = searchTF.getText().toLowerCase();
 
-        Stream<String> stream = results.stream().filter(str -> str.toLowerCase().contains(searchWord));
+        List<String> list = results.stream()
+                .filter(str -> str.toLowerCase()
+                        .contains(searchWord)).toList();
 
-        stream.forEach(str -> displayTA.append(str));
+        list.forEach(str -> displayTA.setText(str + "\n"));
+
+
+        //stream.forEach(str -> System.out.println(str));
+
 
        // for (Stream lines : stream) {
        //     displayTA.append(lines + "\n\n");
-      //  }
+       // }
     }
 }
 
-     */
+
+

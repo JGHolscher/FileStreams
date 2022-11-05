@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e5485335-352a-4763-822f-1807866c8db3" name="Changes" comment="basics of second project done just make search work">
+    <list default="true" id="e5485335-352a-4763-822f-1807866c8db3" name="Changes" comment="uhhh">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RandProductMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandProductMaker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RandProductSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandProductSearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RandProducts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandProducts.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +39,13 @@
   }
 }]]></component>
   <component name="RunManager" selected="Application.RandProductSearchRunner">
+    <configuration name="RandProductMakerRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="RandProductMakerRunner" />
+      <module name="FileStreams" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RandProductRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="RandProductRunner" />
       <module name="FileStreams" />
@@ -53,6 +63,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.RandProductSearchRunner" />
+        <item itemvalue="Application.RandProductMakerRunner" />
         <item itemvalue="Application.RandProductRunner" />
       </list>
     </recent_temporary>
@@ -108,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667593581307</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="uhhh">
+      <created>1667627817554</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1667627817555</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -127,6 +145,7 @@
     <MESSAGE value="ugh" />
     <MESSAGE value="mostly work we chilling rn &#10;next up searching" />
     <MESSAGE value="basics of second project done just make search work" />
-    <option name="LAST_COMMIT_MESSAGE" value="basics of second project done just make search work" />
+    <MESSAGE value="uhhh" />
+    <option name="LAST_COMMIT_MESSAGE" value="uhhh" />
   </component>
 </project>

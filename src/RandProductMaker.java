@@ -142,18 +142,9 @@ public class RandProductMaker extends JFrame {
                 }}});
 
         submitBtn.addActionListener(new ActionListener() {
-            JOptionPane pane =new JOptionPane();
             @Override
             public void actionPerformed(ActionEvent e) {
                 //get rid of extra---------------------------------------idk if i should keep this find out when running tests with the search stuff idk------
-                if(nameTF.getText().length() > 35)
-                    nameTF.setText(nameTF.getText().substring(0, 35));
-                if(IDTF.getText().length() > 6)
-                    IDTF.setText(IDTF.getText().substring(0, 6));
-                if(descTF.getText().length() > 75)
-                    descTF.setText(descTF.getText().substring(0, 75));
-                if(costTF.getText().length() > 6)
-                    costTF.setText(costTF.getText().replaceAll("[^\\d.]", "").substring(0, 6));
 
 
                 //collect, check, clear, and save
@@ -166,7 +157,7 @@ public class RandProductMaker extends JFrame {
 
 
                     try {
-                        randFile = new RandomAccessFile(new File("src/RandProducts.txt"), "rw");
+                        randFile = new RandomAccessFile(new File("RandProducts.txt"), "rw");
                         randFile.seek(randFile.length());
                         randFile.write(String.format("%6s%35s%8s%75s\n",IDTF.getText(), nameTF.getText(), costTF.getText(), descTF.getText() ).getBytes());
                         randFile.close();
